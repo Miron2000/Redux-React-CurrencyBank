@@ -1,0 +1,14 @@
+.nav{
+    position: fixed;
+}
+.text_logo{
+    color:LightSalmon !important;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.childrenNav{
+    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none;
+}
+.text_children{
+    padding: 9px 53px;
+}
