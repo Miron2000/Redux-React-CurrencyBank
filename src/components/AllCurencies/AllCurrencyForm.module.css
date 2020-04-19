@@ -1,7 +1,21 @@
+body{
+   background-image:linear-gradient(to top, rgba(216, 218, 240, 0.80),
+    rgba(205, 203, 223, 0.30)), url('https://d39l2hkdp2esp1.cloudfront.net/img/photo/141882/141882_00_2x.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .table{
     width:958px;
     margin:auto;
 }
 .allcurrencyForm_th{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.flex{
+    display:flex;
+    justify-content: center;
+    text-indent: 16px;
+}
+.textSwitch{
     font-family: 'Noto Sans KR', sans-serif;
 }

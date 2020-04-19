@@ -21,8 +21,8 @@ function AllCurrencyForm({ currency }) {
     return (
 
         <>
-        
-            <tr >
+       
+            <tr>
                 <LanguageContext.Consumer>
                     {(value) => <td>{translations.bankText[value]}</td>}
                 </LanguageContext.Consumer>
