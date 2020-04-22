@@ -5,6 +5,8 @@ const allCurency = {
     error: null
 }
 
+
+
 export const allCurrency = (initialState = allCurency, action) => {
     if (action.type ===  ALL_CURRENCY_LOADED) {
         return { ...initialState, currencies: action.payload }
