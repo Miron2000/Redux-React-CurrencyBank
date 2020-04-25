@@ -4,7 +4,7 @@ import s from './NavFooter.module.css';
 
 function Nav(props){
     return(
-       <Navbar bg="dark" variant="dark">
+       <Navbar bg="dark" variant="dark" className={s.Nav}>
        <Navigation className="mr-auto">
        <Navbar.Brand className={s.text_logo}>Currency</Navbar.Brand>
        <div className={s.text_children}>

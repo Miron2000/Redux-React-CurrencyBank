@@ -10,16 +10,18 @@ import Select from '../components/AllCurencies/select';
 
 const tableArrayRu = ['Банк', 'Валюта', 'Покупка', 'Продажа'];
 const tableArrayEn = ['Bank', 'Currency', 'Buy', 'Sell'];
+const optionRu = 'Все';
+const optionEn = 'All';
 
 const translations = {
- bankText: {
-    en: 'bank_name_en',
-    ru: 'bank_name_ru'
-},
-currencyText: {
-    en: 'currency_name_en',
-    ru: 'currency_name_ru'
-}
+    bankText: {
+        en: 'bank_name_en',
+        ru: 'bank_name_ru'
+    },
+    currencyText: {
+        en: 'currency_name_en',
+        ru: 'currency_name_ru'
+    }
 }
 
 class allCurrency extends React.Component {
@@ -30,8 +32,8 @@ class allCurrency extends React.Component {
         arrayCurrency: [],
         languageItemBank: translations.bankText.ru,
         languageItemCurrency: translations.currencyText.ru,
-        filterBank:null,
-        filterCurrency:null
+        filterBank: null,
+        filterCurrency: null
     }
 
     languageChange = (event) => {
@@ -39,12 +41,12 @@ class allCurrency extends React.Component {
         this.setState({
             arrayBank: [],
             arrayCurrency: [],
-            filterBank:null,
-            filterCurrency:null,
+            filterBank: null,
+            filterCurrency: null,
             language: event.target.checked ? 'en' : 'ru',
             head: event.target.checked ? tableArrayEn : tableArrayRu,
-            languageItemBank: event.target.checked ? translations.bankText.en : translations.bankText.ru ,
-            languageItemCurrency: event.target.checked ? translations.currencyText.en : translations.currencyText.ru 
+            languageItemBank: event.target.checked ? translations.bankText.en : translations.bankText.ru,
+            languageItemCurrency: event.target.checked ? translations.currencyText.en : translations.currencyText.ru
         })
     }
 
@@ -53,96 +55,113 @@ class allCurrency extends React.Component {
 
     componentDidMount() {
         this.props.getAllCurrency();
-        
+
     }
-    componentDidUpdate(){
+    componentDidUpdate() {
         this.searchBanksName();
         this.searchCurrencyName();
     }
 
-//Отрисовка в option имен банка 
-     searchBanksName = () => {
-         if(!this.props.allCurrency.currencies.usd)
-         return
+    //Отрисовка в option имен банка 
+    searchBanksName = () => {
+        if (!this.props.allCurrency.currencies.usd)
+            return
         if (this.state.arrayBank.length > 0)
-        return
-        const arrayBank = [];
+            return
+        const arrayBank = this.state.language === 'ru' ? [optionRu] : [optionEn];
         const bankName = this.state.languageItemBank;
         this.props.allCurrency.currencies.usd && this.props.allCurrency.currencies.usd.map(item => arrayBank.push(item[bankName]))
-   
+
         this.setState({
-            arrayBank:arrayBank
+            arrayBank: arrayBank
         })
         console.log(arrayBank);
         // return arrayBank
     }
-    
+
     //Отрисовка в option валют 
     searchCurrencyName = () => {
-        if(!this.props.allCurrency.currencies)
-        return
-       if (this.state.arrayCurrency.length > 0)
-       return
-        const arrayCurrency = [];
+        if (!this.props.allCurrency.currencies)
+            return
+        if (this.state.arrayCurrency.length > 0)
+            return
+        const arrayCurrency = this.state.language === 'ru' ? [optionRu] : [optionEn];
         const currencyName = this.state.languageItemCurrency;
-        this.props.allCurrency.currencies && Object.keys(this.props.allCurrency.currencies ).map(item => arrayCurrency.push(this.props.allCurrency.currencies[item][0][currencyName]));
-        
-       
+        this.props.allCurrency.currencies && Object.keys(this.props.allCurrency.currencies).map(item => arrayCurrency.push(this.props.allCurrency.currencies[item][0][currencyName]));
+
+
         this.setState({
-            arrayCurrency:arrayCurrency
+            arrayCurrency: arrayCurrency
         })
         // return arrayCurrency
     }
 
+    //Для заголовков , по индексу кому надо <Select>
     createHeader = (item, index) => {
-        if(index === 0){
-            return <th className={s.allcurrencyForm_th}>{item}<Select 
-            handleClick={this.bankSelector} 
-            list={this.state.arrayBank} onChange={this.bankSelector}/></th>
+        if (index === 0) {
+            return <th className={s.allcurrencyForm_th}>{item} <Select
+                handleClick={this.bankSelector}
+                list={this.state.arrayBank} onChange={this.bankSelector} /></th>
         }
-        else if(index === 1){
-            return <th className={s.allcurrencyForm_th}>{item}<Select 
-             handleClick={this.searchCurrencyName} 
-            list={this.state.arrayCurrency}/></th>
+        else if (index === 1) {
+            return <th className={s.allcurrencyForm_th}>{item} <Select
+                handleClick={this.currencySelector}
+                list={this.state.arrayCurrency} onChange={this.currencySelector} /></th>
         }
-        else{
+        else {
             return <th className={s.allcurrencyForm_th}>{item}</th>
         }
     };
 
     //selectedIndex - надо зайти в консоль , в option нажать на любой банк , и там будет свойство selectedIndex
     bankSelector = (event) => {
-        const bankName = this.state.arrayBank[event.target.selectedIndex];
-        this.setState({
-            filterBank:bankName
-        })
-        
+        if (event.target.selectedIndex === 0) {
+            this.setState({
+                filterBank: null
+            })
+        }
+        else {
+            const bankName = this.state.arrayBank[event.target.selectedIndex];
+            this.setState({
+                filterBank: bankName
+            })
+        }
+
     }
 
     currencySelector = (event) => {
-        const currencyName = this.state.arrayCurrency[event.target.selectedIndex];
-        this.setState({
-            filterCurrency:currencyName
-        })
-        
+        if (event.target.selectedIndex === 0) {
+            this.setState({
+                filterCurrency: null
+            })
+        }
+        else {
+            const currencyName = this.state.arrayCurrency[event.target.selectedIndex];
+            this.setState({
+                filterCurrency: currencyName
+            })
+        }
+
     }
 
-    //Отрисовка таблицы 
-    createMainItem = () =>{
+    //Отрисовка таблицы (фільтрация) currencies(обєкт)
+    createMainItem = () => {
         const arrayItemList = [];
-        if(this.props.allCurrency.currencies){
+        if (this.props.allCurrency.currencies) {
             const currencies = this.props.allCurrency.currencies
+            //в обэкте 3 массива , Ми ищем по ключам эти массивы usd eur rub
             Object.keys(currencies).map(currency => {
-                currencies[currency].map(item => {
-                    if( this.state.filterBank){
-                        if(item[this.state.languageItemBank] === this.state.filterBank){
-                            arrayItemList.push(item);
-                        }
-                    }
-                    else{
-                        arrayItemList.push(item);
-                    }
-                })
+                //каждый массив перебор
+                for (let i = 0; i < currencies[currency].length; i++) {
+                    const item = currencies[currency][i]
+
+                    //continue сброс for и сразу переходит в начало цикла а item оставляет (то есть что мы выбираем оставляет а все остальное удаляет)
+                    if (this.state.filterBank && item[this.state.languageItemBank] != this.state.filterBank) continue;
+                    if (this.state.filterCurrency && item[this.state.languageItemCurrency] != this.state.filterCurrency) continue;
+                    arrayItemList.push(item);
+                }
+
+
             })
         }
         return arrayItemList.map(item => <AllCurrencyForm currency={item} />)
@@ -152,7 +171,7 @@ class allCurrency extends React.Component {
     }
 
     render() {
-        
+
         return (
             <div className={s.background}>
                 <LanguageContext.Provider value={this.state.language}>
@@ -167,7 +186,7 @@ class allCurrency extends React.Component {
                         <h5 className={s.textSwitch}>En</h5>
                     </div>
 
-                    <div>
+                    <div className={s.table_padding}>
                         {/* variant="dark" */}
                         <Table striped bordered hover variant="dark" className={s.table}>
                             <thead>
@@ -178,7 +197,7 @@ class allCurrency extends React.Component {
                             </thead>
 
                             <tbody>
-                               {this.createMainItem()}
+                                {this.createMainItem()}
                             </tbody>
                         </Table>
                     </div>

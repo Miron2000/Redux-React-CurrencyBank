@@ -1,6 +1,6 @@
 import React from 'react';
 import LanguageContext from '../../LanguageContext/LanguageContext';
-import s from './AllCurrencyForm.module.css';
+
 
 
 function AllCurrencyForm({ currency }) {

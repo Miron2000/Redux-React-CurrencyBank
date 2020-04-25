@@ -1,8 +1,9 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import allCurency from "./containers/allCurency";
-import Nav from './components/Navbar/Nav';
-import s from './components/Navbar/NavFooter.module.css';
+import Nav from './components/NavbarFooter/Nav';
+import s from './components/NavbarFooter/NavFooter.module.css';
+import Footer from './components/NavbarFooter/Footer';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' exact component={allCurency} />
       </Switch>
 
+      <Footer/>
     </>
   );
 }

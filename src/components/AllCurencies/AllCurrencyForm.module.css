@@ -8,15 +8,34 @@ body{
     width:958px;
     margin:auto;
     opacity:0.7;
+   
 }
+
 .allcurrencyForm_th{
     font-family: 'Noto Sans KR', sans-serif;
 }
 .flex{
     display:flex;
-    justify-content: center;
-    text-indent: 16px;
+    justify-content: flex-end;
+    text-indent: 10px;
 }
 .textSwitch{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+/* Select */
+.selectForm{
+    background-color: #3d59738c;
+    color: #fff;
+    order: 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    outline: none;
+   
+}
+.selectForm:hover{
+    cursor:pointer;
+    border: 1px solid blue;
+}
+.option{
     font-family: 'Noto Sans KR', sans-serif;
 }

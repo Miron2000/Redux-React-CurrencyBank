@@ -1,23 +1,6 @@
 import React from 'react';
+import s from './AllCurrencyForm.module.css';
 
-// class Select extends React.Component {
-// state={
-
-// }
-
-
-// render(){
-//     return(
-//         <>
-//         <select onClick={props.searchBanksName}>
-//             <option></option>
-//         </select>
-//         </>
-//     )
-// }
-
-
-// }
 
 function Select(props){
 
@@ -26,8 +9,8 @@ function Select(props){
 
     return(
                 <>
-                <select onChange={props.handleClick}>
-                {props.list && props.list.map(item => <option value={item}>{item}</option>)}
+                <select className={s.selectForm} onChange={props.handleClick}>
+                {props.list && props.list.map(item => <option className={s.option} value={item}>{item}</option>)}
                 </select>
                 </>
             )

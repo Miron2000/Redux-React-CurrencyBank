@@ -1,5 +1,5 @@
-.nav{
-    position: fixed;
+.Nav{
+width: 100%;
 }
 .text_logo{
     color:LightSalmon !important;
@@ -11,4 +11,17 @@
 }
 .text_children{
     padding: 9px 53px;
+}
+/* Footer */
+.footer{
+    bottom: 0;
+    width: 100%;
+    height: 53px;
+    margin-top: 11px;
+}
+.footer a{
+    color:red;
+    font-size: 18px;
+    font-family: 'Comic Neue', cursive;
+    
 }
