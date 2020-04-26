@@ -1,18 +1,18 @@
 import React from 'react';
-import s from '../NavbarFooter/NavFooter.module.css';
+import './NavFooter.css';
 import { Navbar } from 'react-bootstrap';
 
 
 function Footer(props) {
     return (
-        <Navbar className={s.footer} bg="dark" variant="dark">
-            <Navbar.Brand href="#home">
-            <span className="f09b"></span>
-                <div>
-                    <p><a href="https://github.com/Miron2000" target="_blank">GitHub</a></p>
+        <footer class="footer">
+        <div className="flexFooter">
+                <a  href="https://github.com/Miron2000" target="_blank"><span className="icon-github"></span></a>
+                <a  href="https://www.facebook.com/miron.ivashchenko" target="_blank"><span className="icon-facebook"></span></a>
+                <a  href="https://t.me/currency_ua" target="_blank"><span className="icon-telegram"></span></a>
+                <a  href="https://miron.ivasch@gmail.com" target="_blank"><span className="icon-google"></span></a> 
                 </div>
-            </Navbar.Brand>
-        </Navbar>
+        </footer>
     )
 }
 export default Footer;
