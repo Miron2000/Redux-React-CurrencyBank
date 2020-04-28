@@ -1,0 +1,13 @@
+.flex{
+    display:flex;
+    justify-content: flex-end;
+    text-indent: 10px;
+}
+.textSwitch{
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.accordion{
+    width:958px;
+    margin:auto;
+    opacity:0.7;
+}
