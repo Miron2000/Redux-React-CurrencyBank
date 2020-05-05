@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Form} from 'react-bootstrap';
+import '../components/SubscribeCurrencyBank/subscribeCurrencyBank.css';
 import { getSubscribeCurrencyBank } from '../store/actions/postListActions';
 import SubscribeCurrencyBankForm from '../components/SubscribeCurrencyBank/subscribeCurrencyBankForm';
 import LanguageContext from '../LanguageContext/LanguageContext';
-import '../components/SubscribeCurrencyBank/subscribeCurrencyBank.css'
+
 
 
 

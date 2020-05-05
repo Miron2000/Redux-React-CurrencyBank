@@ -6,6 +6,8 @@ export const ERROR_LOADING_DATA = "ERROR LOADING DATA";
 
 export const SUBSCRIBE_CURRENCY_BANK_LOADED ='SUBSCRIBE_CURRENCY_BANK_LOADED';
 
+export const POST_CREATED = 'POST_SUBSCRIBE_CURRENCY_BANK';
+
 
 export const getAllCurrency = () => {
     //повернемо функцію
@@ -35,5 +37,19 @@ export const getSubscribeCurrencyBank = () => {
             console.log(res, "OBJECT SUBSCRIBE")
         })
         .catch(err => dispatch({type: ERROR_LOADING_DATA, error: err}))
+    }
+}
+
+export const createPost = (data) => {
+    return (dispatch) => {
+        fetch(`${api}/subscribe/attach/${apiKey}`, {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res, 'Post')
+            dispatch({type: POST_CREATED, payload: res})
+        })
     }
 }
