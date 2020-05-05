@@ -42,6 +42,7 @@ class OneButton extends React.Component{
             this.setState({
                buttonColor: 'danger',
                currency_id:this.props.currency.currency_id,
+               
                 //меняем текст
                text:translationsText.textUnsubscribe.ru
                 
@@ -51,6 +52,7 @@ class OneButton extends React.Component{
             this.setState({
                 buttonColor: 'success',
                 currency_id:this.props.currency.currency_id,
+                
                 //меняем текст
                 text:translationsText.textSubscribe.ru
                 

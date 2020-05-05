@@ -1,4 +1,5 @@
 import {api, apiKey} from '../../config';
+import { functionTypeAnnotation } from '@babel/types';
 
 export const ALL_CURRENCY_LOADED = 'ALL_CURRENCY_LOADED';
 const START_LOADING_DATA = 'START LOADING DATA';
@@ -40,16 +41,55 @@ export const getSubscribeCurrencyBank = () => {
     }
 }
 
-export const createPost = (data) => {
+
+export const createPost = (currency_id, status) => {
     return (dispatch) => {
+        console.log(status, currency_id , 'HELLO')
         fetch(`${api}/subscribe/attach/${apiKey}`, {
             method: "POST",
-            body: JSON.stringify(data)
+            //изменение 
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                status: status,
+                currency_id: currency_id 
+                })
         })
         .then(res => res.json())
         .then(res => {
             console.log(res, 'Post')
+          
             dispatch({type: POST_CREATED, payload: res})
         })
     }
 }
+
+// const apiLink = `http://dcur-1.promo-hunter.com/api/currencies/subscribe/attach/jsdfjhsgfd`
+// export  async function createPost (currencyId, status) {
+//     console.log('before:', currencyId, status)
+//     return (dispatch) => {
+//         const response = await fetch(
+//             apiLink,
+//             {
+//                 method: "POST",
+//                 headers: {
+//                     'Content-Type': 'application/json'
+//                     // 'Content-Type': 'application/x-www-form-urlencoded',
+//                 },
+//                 body: JSON.stringify(
+//                     {
+//                         status: status,
+//                         currency_id: currencyId
+//                     }
+//                 )
+                
+//             }
+            
+    
+//         )
+//         dispatch({type: POST_CREATED, payload: res})
+//         return await response.json();
+// }
+// }
