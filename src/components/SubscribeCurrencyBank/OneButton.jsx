@@ -59,7 +59,7 @@ class OneButton extends React.Component{
             })
         }
         //вызываю эту функцию с actions для подписки (POST)
-      this.props.createPost(this.state.currency_id, this.state.subscribe) 
+      this.props.createPost(this.state.currency_id,this.state.subscribe) 
     
         
     }
