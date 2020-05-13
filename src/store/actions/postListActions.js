@@ -52,7 +52,7 @@ export const getSubscribeCurrencyBank = () => {
 
 export const createPost = (currency_id, status) => {
     return (dispatch) => {
-        console.log(status, currency_id , 'HELLO')
+        // console.log(status, currency_id , 'HELLO')
         fetch(`${api}/subscribe/attach/${apiKey}`, {
             method: "POST",
             // изменение 

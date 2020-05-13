@@ -11,3 +11,10 @@
     margin:auto;
     opacity:0.7;
 }
+.button-flex{
+    display:flex;
+/*justify-content: space-around;*/
+}
+.button_sub{
+    margin:4px;
+}

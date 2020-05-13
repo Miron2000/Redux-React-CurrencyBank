@@ -1,105 +1,95 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import LanguageContext from '../../LanguageContext/LanguageContext';
 import { connect } from 'react-redux';
-import {createPost} from '../../store/actions/postListActions';
+import { createPost } from '../../store/actions/postListActions';
+import './subscribeCurrencyBank.css';
 
-const translationsText = {
-    textSubscribe:{
-        en:'Subscribe',
-        ru:'Подписаться'  
-    },
-    textUnsubscribe:{
-        en:'Unsubscribe',
-        ru:'Отписаться'
-    }
-} 
+// const translationsText = {
+//     textSubscribe: {
+//         en: 'Subscribe',
+//         ru: 'Подписаться'
+//     },
+//     textUnsubscribe: {
+//         en: 'Unsubscribe',
+//         ru: 'Отписаться'
+//     }
+// }
 
-class OneButton extends React.Component{
-  
 
-    state={
-        subscribe: 'sub',
-        buttonColor: 'success',
-        //меняем текст
-        text:translationsText.textSubscribe.ru,
-       
+class OneButton extends React.Component {
+
+
+    state = {
+        //  subscribe: 'sub',
+        subscribe: this.props.currency.subscribe,
+
         //Для подписки
-         currency_id:this.props.currency.currency_id
+        currency_id: this.props.currency.currency_id
     }
 
-    subscribeHandleClick = (event) => {
-        console.log(this.state.subscribe)
-        console.log(this.state.currency_id)
-       
+    subscribeHandleClick = () => {
+
         this.setState({
-            subscribe:this.state.subscribe === 'sub' ? 'unsub' : 'sub',
-            //для подписки
-            // currency_id:event.target.click ? this.props.currency.currency_id : null
-            // currency_id: this.state.currency_id === null ? this.props.currency.currency_id : null
+
+            subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub',
         })
-        if (this.state.subscribe === 'sub'){
+
+        if (this.state.subscribe === 'sub') {
+
             this.setState({
-               buttonColor: 'danger',
-               currency_id:this.props.currency.currency_id,
-               
-                //меняем текст
-               text:translationsText.textUnsubscribe.ru
-                
-            })
+                currency_id: this.props.currency.currency_id,
+            },
+                () => console.log(this.props.currency.subscribe, 'MIRON')
+            )
         }
-        else if(this.state.subscribe === 'unsub'){
+        else if (this.state.subscribe === 'unsub') {
+
             this.setState({
-                buttonColor: 'success',
-                currency_id:this.props.currency.currency_id,
-                
-                //меняем текст
-                text:translationsText.textSubscribe.ru
-                
-            })
+                currency_id: this.props.currency.currency_id,
+            },
+                () => console.log(this.props.currency.subscribe, 'MIRON'))
         }
+
         //вызываю эту функцию с actions для подписки (POST)
-      this.props.createPost(this.state.currency_id,this.state.subscribe) 
-    
-        
+        this.props.createPost(this.state.currency_id, this.state.subscribe)
+
     }
-    
-   
-      
 
 
-    render(){
+
+    render() {
+        let buttonColor = this.state.subscribe === 'sub' ? 'danger' : 'success';
+
         const translations = {
-            currencyText:{
-              en: this.props.currency.currency_name_en,
-              ru: this.props.currency.currency_name_ru
+            currencyText: {
+                en: this.props.currency.currency_name_en,
+                ru: this.props.currency.currency_name_ru
             },
-            textSubscribe:{
-                en:'Subscribe',
-                ru:'Подписаться'  
+            textSubscribe: {
+                en: 'Subscribe',
+                ru: 'Подписаться'
             },
-            textUnsubscribe:{
-                en:'Unsubscribe',
-                ru:'Отписаться'
+            textUnsubscribe: {
+                en: 'Unsubscribe',
+                ru: 'Отписаться'
             }
         }
-      
-        
-        return(
-                <>
-                 <LanguageContext.Consumer>
-                 
-                 {/* Для метода пост */}
-                 {/* onClick={() => this.props.createPost(this.state)} */}
-                 {/* ${translations.textSubscribe[value]} */}
-               {(value) => <Button onClick={this.subscribeHandleClick} variant={this.state.buttonColor}>{`${translations.currencyText[value]} ${this.state.text} `}</Button>} 
-               {/* Доллар подписаться и отписаться флажок сделать который делает отписаться  */}
+        let textSubscribe = this.state.subscribe === 'sub' ? translations.textUnsubscribe.ru : translations.textSubscribe.ru;
+
+
+        return (
+            <>
+                <LanguageContext.Consumer>
+
+                    {/* ${translations.textSubscribe[value]} */}
+                    {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]} ${textSubscribe} `}</Button>}
+
                 </LanguageContext.Consumer>
-                
-                </>
+
+            </>
         )
     }
 }
 
-export default connect(null, {createPost})(OneButton);
-    // export default OneButton;
+export default connect(null, { createPost })(OneButton);
