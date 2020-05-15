@@ -35,21 +35,21 @@ class OneButton extends React.Component {
             subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub',
         })
 
-        if (this.state.subscribe === 'sub') {
+        // if (this.state.subscribe === 'sub') {
 
-            this.setState({
-                currency_id: this.props.currency.currency_id,
-            },
-                () => console.log(this.props.currency.subscribe, 'MIRON')
-            )
-        }
-        else if (this.state.subscribe === 'unsub') {
+        //     this.setState({
+        //         currency_id: this.props.currency.currency_id,
+        //     },
+        //         () => console.log(this.props.currency.subscribe, 'MIRON')
+        //     )
+        // }
+        // else if (this.state.subscribe === 'unsub') {
 
-            this.setState({
-                currency_id: this.props.currency.currency_id,
-            },
-                () => console.log(this.props.currency.subscribe, 'MIRON'))
-        }
+        //     this.setState({
+        //         currency_id: this.props.currency.currency_id,
+        //     },
+        //         () => console.log(this.props.currency.subscribe, 'MIRON'))
+        // }
 
         //вызываю эту функцию с actions для подписки (POST)
         this.props.createPost(this.state.currency_id, this.state.subscribe)
@@ -61,6 +61,7 @@ class OneButton extends React.Component {
     render() {
         let buttonColor = this.state.subscribe === 'sub' ? 'danger' : 'success';
 
+        
         const translations = {
             currencyText: {
                 en: this.props.currency.currency_name_en,

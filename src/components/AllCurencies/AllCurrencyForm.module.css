@@ -1,13 +1,16 @@
 body{
-   background-image:linear-gradient(to top, rgba(216, 218, 240, 0.80),
-    rgba(205, 203, 223, 0.30)), url('https://d39l2hkdp2esp1.cloudfront.net/img/photo/141882/141882_00_2x.jpg');
-    background-size: cover;
+   background-image: url('https://d39l2hkdp2esp1.cloudfront.net/img/photo/141882/141882_00_2x.jpg');
+   background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* width: 100%;
+    height: 200vh; */
 }
 .table{
     width:958px;
     margin:auto;
     opacity:0.7;
+    margin-bottom: 2rem;
    
 }
 

@@ -18,13 +18,13 @@
     /* Footer */
     .footer {
         background-color: #343a40;
-        height: 8vh;
-        margin-top: 16px;
+        height: 7vh;
+      
     }
     .flexFooter{
         display: flex;
         justify-content: space-evenly;
-        padding-top: 10px;
+        padding-top: 8px;
     }
     .flexFooter a {
         text-decoration: none;

@@ -4,7 +4,7 @@ import './NavFooter.css';
 
 function Nav(props){
     return(
-       <Navbar bg="dark" variant="dark" className="Nav">
+       <Navbar bg="dark" variant="dark" className="Nav" sticky='top'>
        <Navigation className="mr-auto">
        <Navbar.Brand className="text_logo">Currency</Navbar.Brand>
        <div className="text_children">
