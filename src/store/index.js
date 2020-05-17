@@ -6,6 +6,6 @@ import {compose} from 'redux';
 const reducers = combineReducers({allCurrency:allCurrency, subscribeCurrencyBank:subscribeCurrencyBank});
 
 
-const enchancedMiddleware = compose(applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const enchancedMiddleware = compose(applyMiddleware(thunk));
 
 export const store = createStore(reducers, enchancedMiddleware)

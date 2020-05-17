@@ -6,6 +6,21 @@ import { createPost } from '../../store/actions/postListActions';
 import './subscribeCurrencyBank.css';
 
 
+// const changeState = () => {
+//     return new Promise(((resolve, reject) => {
+//         this.setState({
+//             subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub',
+//         })
+//         resolve(this.state.subscribe)
+//     }))
+// }
+// changeState().then((res) => {
+//     console.table(res)
+//     //вызываю эту функцию с actions для подписки (POST)
+//     this.props.createPost(this.state.currency_id, this.state.subscribe)
+// });
+
+
 class OneButton extends React.Component {
     state = {
         subscribe: this.props.currency.subscribe,
@@ -15,27 +30,16 @@ class OneButton extends React.Component {
 
     subscribeHandleClick = () => {
 
-        const changeState = () => {
-            return new Promise(((resolve, reject) => {
-                this.setState({
-                    subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub',
-                })
-                resolve(this.state.subscribe)
-            }))
-        }
-        changeState().then((res) => {
-            console.table(res)
+        this.setState(
+            {subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub'},
             //вызываю эту функцию с actions для подписки (POST)
-            this.props.createPost(this.state.currency_id, this.state.subscribe)
-        });
-
+            () => (this.props.createPost(this.state.currency_id, this.state.subscribe))
+        )
     }
-
 
 
     render() {
         let buttonColor = this.state.subscribe === 'sub' ? 'danger' : 'success';
-
 
         const translations = {
             currencyText: {
@@ -52,7 +56,6 @@ class OneButton extends React.Component {
             }
         }
         let textSubscribe = this.state.subscribe === 'sub' ? translations.textUnsubscribe.ru : translations.textSubscribe.ru;
-
 
         return (
             <>
