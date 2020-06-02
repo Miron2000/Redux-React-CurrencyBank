@@ -1,5 +1,6 @@
 import React from 'react';
 import LanguageContext from '../../LanguageContext/LanguageContext';
+import s from '../AllCurencies/AllCurrencyForm.module.css';
 
 
 

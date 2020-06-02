@@ -3,7 +3,7 @@
     }
     .text_logo{
         color:LightSalmon !important;
-        font-family: 'Noto Sans KR', sans-serif;
+        font-family: 'Lobster', cursive;
     }
     .childrenNav{
         font-family: 'Noto Sans KR', sans-serif;
@@ -19,12 +19,16 @@
     .footer {
         background-color: #343a40;
         height: 7vh;
-      
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
     }
     .flexFooter{
         display: flex;
         justify-content: space-evenly;
         padding-top: 8px;
+        /* z-index:20; */
     }
     .flexFooter a {
         text-decoration: none;
@@ -44,6 +48,12 @@
     }
     .icon-google{
         font-size: 2rem; 
+    }
+    .test{
+display: block;
+  padding: 20px;
+  height: 60px;
+  width: 100%;
     }
   
     

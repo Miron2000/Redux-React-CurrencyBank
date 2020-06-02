@@ -7,7 +7,7 @@ import {Navbar, Nav as Navigation } from 'react-bootstrap';
 function Footer(props) {
     return (
         //  <Navbar bg="dark" variant="dark" className="footer" fixed='bottom'>
-       
+       <div className='test'>
             <footer className="footer">  
                 <div className="flexFooter">
                 <a  href="https://github.com/Miron2000" target="_blank"><span className="icon-github"></span></a>
@@ -16,6 +16,7 @@ function Footer(props) {
                 <a  href="https://miron.ivasch@gmail.com" target="_blank"><span className="icon-google"></span></a> 
                 </div>
             </footer>  
+            </div>
             
         // </Navbar>
     )

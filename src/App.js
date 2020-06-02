@@ -11,14 +11,14 @@ function App() {
   return (
     <>
       <Nav>
-        <Link to='/'>All Currencies</Link>
-        <Link className="paddingChildren" to='/subscribe'>Subscribe</Link>
+        <Link to='/home'>All Currencies</Link>
+        <Link className="paddingChildren" to='/home/subscribe'>Subscribe</Link>
       </Nav>
 
 
       <Switch>
-        <Route path='/' exact component={allCurency} />
-        <Route path='/subscribe' component={subscribeCurrencyBank}/>
+        <Route path='/home' exact component={allCurency} />
+        <Route path='/home/subscribe' component={subscribeCurrencyBank}/>
       </Switch>
 
       <Footer/>

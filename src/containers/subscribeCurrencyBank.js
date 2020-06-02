@@ -9,6 +9,7 @@ import LanguageContext from '../LanguageContext/LanguageContext';
 
 
 
+
 class subscribeCurrencyBank extends React.Component{
 
 state={

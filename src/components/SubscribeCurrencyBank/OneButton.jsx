@@ -4,6 +4,9 @@ import LanguageContext from '../../LanguageContext/LanguageContext';
 import { connect } from 'react-redux';
 import { createPost } from '../../store/actions/postListActions';
 import './subscribeCurrencyBank.css';
+import Img from "../../img/checkMarket.png";
+import Img2 from "../../img/cross.png";
+
 
 
 // const changeState = () => {
@@ -31,10 +34,11 @@ class OneButton extends React.Component {
     subscribeHandleClick = () => {
 
         this.setState(
-            {subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub'},
+            { subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub' },
             //вызываю эту функцию с actions для подписки (POST)
             () => (this.props.createPost(this.state.currency_id, this.state.subscribe))
         )
+
     }
 
 
@@ -55,15 +59,20 @@ class OneButton extends React.Component {
                 ru: 'Отписаться'
             }
         }
+        // let Preloader = () => {
+        //     return <img src={Img}/>
+        // };
+
         let textSubscribe = this.state.subscribe === 'sub' ? translations.textUnsubscribe.ru : translations.textSubscribe.ru;
+
 
         return (
             <>
                 <LanguageContext.Consumer>
                     {/* ${translations.textSubscribe[value]} */}
-                    {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]} ${textSubscribe} `}</Button>}
+                    {/* {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]} ${textSubscribe} `}</Button>} */}
+                    {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]}  ${textSubscribe}`} {this.state.subscribe === 'sub' ? <img className="imgButton" src={Img} /> : <img className="imgButton" src={Img2} />}</Button>}
                 </LanguageContext.Consumer>
-
             </>
         )
     }

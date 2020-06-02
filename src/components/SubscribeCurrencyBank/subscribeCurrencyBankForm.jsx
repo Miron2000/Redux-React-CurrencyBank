@@ -21,7 +21,7 @@ function SubscribeCurrencyBankForm({ subscribe }) {
     
     
     return (
-    <div>
+    <div className="section_button">
         <Accordion defaultActiveKey="0" className="accordion">
   <Card>
     <Card.Header>

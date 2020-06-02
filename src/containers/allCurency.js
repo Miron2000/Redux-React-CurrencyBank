@@ -188,7 +188,8 @@ class allCurrency extends React.Component {
 
                     <div className={s.table_padding}>
                         {/* variant="dark" */}
-                        <Table striped bordered hover variant="dark" className={s.table}>
+                        <Table striped bordered hover variant="dark"  className={s.table}>
+                            
                             <thead>
                                 <tr>
 
