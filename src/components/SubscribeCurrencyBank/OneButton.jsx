@@ -23,16 +23,13 @@ import Img2 from "../../img/cross.png";
 //     this.props.createPost(this.state.currency_id, this.state.subscribe)
 // });
 
-
 class OneButton extends React.Component {
     state = {
         subscribe: this.props.currency.subscribe,
         //Для подписки
         currency_id: this.props.currency.currency_id
     }
-
     subscribeHandleClick = () => {
-
         this.setState(
             { subscribe: this.state.subscribe === 'sub' ? 'unsub' : 'sub' },
             //вызываю эту функцию с actions для подписки (POST)
@@ -40,11 +37,8 @@ class OneButton extends React.Component {
         )
 
     }
-
-
     render() {
         let buttonColor = this.state.subscribe === 'sub' ? 'danger' : 'success';
-
         const translations = {
             currencyText: {
                 en: this.props.currency.currency_name_en,
@@ -59,19 +53,14 @@ class OneButton extends React.Component {
                 ru: 'Отписаться'
             }
         }
-        // let Preloader = () => {
-        //     return <img src={Img}/>
-        // };
 
         let textSubscribe = this.state.subscribe === 'sub' ? translations.textUnsubscribe.ru : translations.textSubscribe.ru;
-
-
+        let img = <img className="imgButton" src={this.state.subscribe === 'sub' ? Img : Img2} />
         return (
             <>
                 <LanguageContext.Consumer>
                     {/* ${translations.textSubscribe[value]} */}
-                    {/* {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]} ${textSubscribe} `}</Button>} */}
-                    {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]}  ${textSubscribe}`} {this.state.subscribe === 'sub' ? <img className="imgButton" src={Img} /> : <img className="imgButton" src={Img2} />}</Button>}
+                    {(value) => <Button className="button_sub" onClick={this.subscribeHandleClick} variant={buttonColor}>{`${translations.currencyText[value]}  ${textSubscribe}`} {img}</Button>}
                 </LanguageContext.Consumer>
             </>
         )

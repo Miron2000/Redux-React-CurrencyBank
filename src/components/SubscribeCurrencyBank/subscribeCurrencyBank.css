@@ -12,16 +12,18 @@
     margin:auto;
     /* opacity:0.7; */
 }
-.button-flex{
-    display:flex;
-/*justify-content: space-around;*/
-}
 .button_sub{
     margin:4px;
 }
 .imgButton{
     width: 26px;
 }
-/* .section_button{
-background-color: rgba(245, 243, 243, 0.7)
-} */
+@media screen and (max-width: 600px) {
+    .accordion{
+        font-size:10px;
+      
+    }
+    .button_sub{
+       font-size:10px;
+    }
+}

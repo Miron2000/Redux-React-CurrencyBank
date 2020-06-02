@@ -1,60 +1,72 @@
 .Nav{
     width: 100%;
-    }
-    .text_logo{
-        color:LightSalmon !important;
-        font-family: 'Lobster', cursive;
-    }
+}
+.miron{
+    width:100%;
+}
+.text_logo{
+    color:LightSalmon !important;
+    font-family: 'Lobster', cursive;
+}
+.childrenNav{
+    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none;   
+}
+@media screen and (max-width: 600px) {
     .childrenNav{
-        font-family: 'Noto Sans KR', sans-serif;
-        text-decoration: none; 
+        font-size:10px;    
     }
-    .text_children{
-        padding: 9px 53px;
-    }
-    .paddingChildren{
-        padding-left: 66px;
-    }
+}
+.text_children{
+    padding: 9px 53px;
+}
+.paddingChildren{
+    padding-left: 66px;
+}
     /* Footer */
-    .footer {
-        background-color: #343a40;
-        height: 7vh;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-    }
-    .flexFooter{
-        display: flex;
-        justify-content: space-evenly;
-        padding-top: 8px;
-        /* z-index:20; */
-    }
-    .flexFooter a {
-        text-decoration: none;
-    }
-  
-    .iconFooter:active {
-        transform: translateY(5px);
-    }
-    .icon-facebook{
-        font-size: 2rem;
-    }
-    .icon-github{
-        font-size: 2rem;
-    }
-    .icon-telegram{
-        font-size: 2rem;
-    }
-    .icon-google{
-        font-size: 2rem; 
-    }
-    .test{
-display: block;
+.footer {
+    background-color: #343a40;
+    height: 7vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.flexFooter{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 8px;
+    /* z-index:20; */
+}
+.flexFooter a {
+    text-decoration: none;
+}
+.iconFooter:active {
+    transform: translateY(5px);
+}
+.icon-facebook{
+    font-size: 2rem;
+}
+.icon-github{
+    font-size: 2rem;
+}
+.icon-telegram{
+    font-size: 2rem;
+}
+.icon-google{
+    font-size: 2rem; 
+}
+.test{
+  display: block;
   padding: 20px;
   height: 60px;
   width: 100%;
+}
+@media screen and (max-width: 600px) {
+    .flexFooter a{
+        font-size:10px;
     }
-  
+}
+        
     
    

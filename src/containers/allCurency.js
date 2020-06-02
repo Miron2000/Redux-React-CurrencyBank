@@ -7,7 +7,6 @@ import s from '../components/AllCurencies/AllCurrencyForm.module.css';
 import LanguageContext from '../LanguageContext/LanguageContext';
 import Select from '../components/AllCurencies/select';
 
-
 const tableArrayRu = ['Банк', 'Валюта', 'Покупка', 'Продажа'];
 const tableArrayEn = ['Bank', 'Currency', 'Buy', 'Sell'];
 const optionRu = 'Все';
@@ -23,7 +22,6 @@ const translations = {
         ru: 'currency_name_ru'
     }
 }
-
 class allCurrency extends React.Component {
     state = {
         language: this.context,
@@ -51,8 +49,6 @@ class allCurrency extends React.Component {
     }
 
     static contextType = LanguageContext;
-
-
     componentDidMount() {
         this.props.getAllCurrency();
 
@@ -61,7 +57,6 @@ class allCurrency extends React.Component {
         this.searchBanksName();
         this.searchCurrencyName();
     }
-
     //Отрисовка в option имен банка 
     searchBanksName = () => {
         if (!this.props.allCurrency.currencies.usd)
@@ -71,14 +66,13 @@ class allCurrency extends React.Component {
         const arrayBank = this.state.language === 'ru' ? [optionRu] : [optionEn];
         const bankName = this.state.languageItemBank;
         this.props.allCurrency.currencies.usd && this.props.allCurrency.currencies.usd.map(item => arrayBank.push(item[bankName]))
-
+        
         this.setState({
             arrayBank: arrayBank
         })
         console.log(arrayBank);
         // return arrayBank
     }
-
     //Отрисовка в option валют 
     searchCurrencyName = () => {
         if (!this.props.allCurrency.currencies)
@@ -88,14 +82,11 @@ class allCurrency extends React.Component {
         const arrayCurrency = this.state.language === 'ru' ? [optionRu] : [optionEn];
         const currencyName = this.state.languageItemCurrency;
         this.props.allCurrency.currencies && Object.keys(this.props.allCurrency.currencies).map(item => arrayCurrency.push(this.props.allCurrency.currencies[item][0][currencyName]));
-
-
         this.setState({
             arrayCurrency: arrayCurrency
         })
         // return arrayCurrency
     }
-
     //Для заголовков , по индексу кому надо <Select>
     createHeader = (item, index) => {
         if (index === 0) {
@@ -112,7 +103,6 @@ class allCurrency extends React.Component {
             return <th className={s.allcurrencyForm_th}>{item}</th>
         }
     };
-
     //selectedIndex - надо зайти в консоль , в option нажать на любой банк , и там будет свойство selectedIndex
     bankSelector = (event) => {
         if (event.target.selectedIndex === 0) {
@@ -126,9 +116,7 @@ class allCurrency extends React.Component {
                 filterBank: bankName
             })
         }
-
     }
-
     currencySelector = (event) => {
         if (event.target.selectedIndex === 0) {
             this.setState({
@@ -141,9 +129,7 @@ class allCurrency extends React.Component {
                 filterCurrency: currencyName
             })
         }
-
     }
-
     //Отрисовка таблицы (фільтрация) currencies(обєкт)
     createMainItem = () => {
         const arrayItemList = [];
@@ -160,8 +146,6 @@ class allCurrency extends React.Component {
                     if (this.state.filterCurrency && item[this.state.languageItemCurrency] != this.state.filterCurrency) continue;
                     arrayItemList.push(item);
                 }
-
-
             })
         }
         return arrayItemList.map(item => <AllCurrencyForm currency={item} />)
@@ -169,9 +153,7 @@ class allCurrency extends React.Component {
         // {this.props.allCurrency.currencies.eur && this.props.allCurrency.currencies.eur.map(item => <AllCurrencyForm currency={item} />)}
         // {this.props.allCurrency.currencies.rub && this.props.allCurrency.currencies.rub.map(item => <AllCurrencyForm currency={item} />)}
     }
-
     render() {
-
         return (
             <div className={s.background}>
                 <LanguageContext.Provider value={this.state.language}>
@@ -188,8 +170,8 @@ class allCurrency extends React.Component {
 
                     <div className={s.table_padding}>
                         {/* variant="dark" */}
-                        <Table striped bordered hover variant="dark"  className={s.table}>
-                            
+                        <Table striped bordered hover variant="dark" className={s.table}>
+
                             <thead>
                                 <tr>
 
@@ -207,9 +189,6 @@ class allCurrency extends React.Component {
         )
     };
 }
-
-
-
 const mapStateToProps = (state) => {
     return {
         allCurrency: state.allCurrency
@@ -219,6 +198,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     getAllCurrency
 };
-
-
 export default connect(mapStateToProps, mapDispatchToProps)(allCurrency);
