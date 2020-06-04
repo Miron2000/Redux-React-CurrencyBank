@@ -57,13 +57,13 @@
     font-size: 2rem; 
 }
 .test{
-  display: block;
+display: block;
   padding: 20px;
   height: 60px;
   width: 100%;
 }
-@media screen and (max-width: 600px) {
-    .flexFooter a{
+    @media screen and (max-width: 600px) {
+    .flexFooter span {
         font-size:10px;
     }
 }

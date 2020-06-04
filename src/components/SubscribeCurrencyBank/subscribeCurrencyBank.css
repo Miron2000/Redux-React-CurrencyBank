@@ -25,5 +25,12 @@
     }
     .button_sub{
        font-size:10px;
+       /* width: 7rem; */
+    }
+    .textSwitch{
+        font-size:12px;
+    }
+    .imgButton{
+        width:15%;
     }
 }

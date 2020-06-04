@@ -54,7 +54,7 @@ class OneButton extends React.Component {
             }
         }
 
-        let textSubscribe = this.state.subscribe === 'sub' ? translations.textUnsubscribe.ru : translations.textSubscribe.ru;
+        let textSubscribe = this.state.subscribe === 'sub' ? translations.textUnsubscribe[this.props.language] : translations.textSubscribe[this.props.language];
         let img = <img className="imgButton" src={this.state.subscribe === 'sub' ? Img : Img2} />
         return (
             <>

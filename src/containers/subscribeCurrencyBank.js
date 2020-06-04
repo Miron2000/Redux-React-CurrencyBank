@@ -7,9 +7,6 @@ import SubscribeCurrencyBankForm from '../components/SubscribeCurrencyBank/subsc
 import LanguageContext from '../LanguageContext/LanguageContext';
 
 
-
-
-
 class subscribeCurrencyBank extends React.Component {
 
     state = {
@@ -23,10 +20,8 @@ class subscribeCurrencyBank extends React.Component {
         })
     }
 
-
     componentDidMount() {
         this.props.getSubscribeCurrencyBank();
-
     }
 
     //отрисовка(с обьекта достаю item)
@@ -34,7 +29,7 @@ class subscribeCurrencyBank extends React.Component {
 
         const subscribeCurBank = this.props.subscribeCurrencyBank.subscribeCurBank;
         return Object.keys(subscribeCurBank).map(index => {
-            return <SubscribeCurrencyBankForm subscribe={subscribeCurBank[index]} />
+            return <SubscribeCurrencyBankForm subscribe={subscribeCurBank[index]} language={this.state.language} />
         })
     }
 

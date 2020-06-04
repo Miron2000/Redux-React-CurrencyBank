@@ -4,7 +4,7 @@ import LanguageContext from '../../LanguageContext/LanguageContext';
 import ButtonForm from './ButtonForm';
 import './subscribeCurrencyBank.css';
 
-function SubscribeCurrencyBankForm({ subscribe }) {
+function SubscribeCurrencyBankForm({ subscribe, language }) {
   const translations = {
     bankText: {
       en: subscribe.bank_name_en,
@@ -28,7 +28,7 @@ function SubscribeCurrencyBankForm({ subscribe }) {
           </Card.Header>
           <Accordion.Collapse eventKey="0">
             {/* Вот тут компонента будет Button (3 кнопки USD, EUR, RUB) */}
-            <Card.Body>     <ButtonForm subscribe={subscribe} />   </Card.Body>
+            <Card.Body>     <ButtonForm subscribe={subscribe} language={language}/>   </Card.Body>
           </Accordion.Collapse>
         </Card>
       </Accordion>

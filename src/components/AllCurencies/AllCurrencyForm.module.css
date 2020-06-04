@@ -16,6 +16,13 @@ body{
         font-size:10px;
         width:80%;
     }
+    .textSwitch{
+        font-size:12px;
+    }
+    .custom-control-label{
+        width: 1.25rem;
+    }
+        
 }
 /* @media screen and (max-width: 400px){
     .table{

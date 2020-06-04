@@ -36,6 +36,7 @@ class allCurrency extends React.Component {
 
     languageChange = (event) => {
         console.log(event.target.checked)
+
         this.setState({
             arrayBank: [],
             arrayCurrency: [],
@@ -70,7 +71,7 @@ class allCurrency extends React.Component {
         this.setState({
             arrayBank: arrayBank
         })
-        console.log(arrayBank);
+       
         // return arrayBank
     }
     //Отрисовка в option валют 
@@ -85,17 +86,19 @@ class allCurrency extends React.Component {
         this.setState({
             arrayCurrency: arrayCurrency
         })
+     
         // return arrayCurrency
     }
     //Для заголовков , по индексу кому надо <Select>
     createHeader = (item, index) => {
+      console.log(index);
         if (index === 0) {
-            return <th className={s.allcurrencyForm_th}>{item} <Select
+            return <th  className={s.allcurrencyForm_th}>{item} <Select key={index}
                 handleClick={this.bankSelector}
                 list={this.state.arrayBank} onChange={this.bankSelector} /></th>
         }
         else if (index === 1) {
-            return <th className={s.allcurrencyForm_th}>{item} <Select
+            return <th className={s.allcurrencyForm_th}>{item} <Select key={index}
                 handleClick={this.currencySelector}
                 list={this.state.arrayCurrency} onChange={this.currencySelector} /></th>
         }
@@ -160,7 +163,7 @@ class allCurrency extends React.Component {
 
                     <div className={s.flex}>
                         <h5 className={s.textSwitch}>Ru</h5>
-                        <Form.Check onChange={this.languageChange}
+                        <Form.Check className={s.switchFlex} onChange={this.languageChange}
                             type="switch"
                             id="custom-switch"
                             label=""
