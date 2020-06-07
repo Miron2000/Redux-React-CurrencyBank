@@ -63,8 +63,8 @@ display: block;
   width: 100%;
 }
     @media screen and (max-width: 600px) {
-    .flexFooter span {
-        font-size:10px;
+    .flexFooter i {
+        font-size:15px;
     }
 }
         
